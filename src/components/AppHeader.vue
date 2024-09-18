@@ -28,6 +28,39 @@
 					})
 					// svuoto il campo dell'input dopo aver visualizzato i titoli
 					this.searchText = ''
+				},
+				// funzione per gestire le bandiere
+				flag(language){
+					// salvo i dati delle lingue che hanno una corrispondenza con le immagini
+					const validLanguage = [
+						'en',
+						'it',
+						'ja',
+						'de',
+						'pt',
+						'es',
+						'fr',
+						'dk'
+					];
+					// se sono valide...
+					if(validLanguage.includes(language)){
+
+						// quando foto e dicitura non corrispondono, associo la dicitura
+						if(language == 'en'){
+							return 'img/flags/gb.webp'
+						}
+						else if(language == 'ja'){
+							return 'img/flags/jp.webp'
+						}
+						// altrimenti concateno
+						else{
+							return 'img/flags/' + language + '.webp'
+						}
+					}
+					// altrimenti ¯\_(ツ)_/¯
+					else{
+							return 'img/flags/idk.gif'
+						}
 				}
 			},
 	}
@@ -69,7 +102,7 @@
 						</div>
 						<ul class="list-group list-group-flush">
 							<li class="list-group-item">Titolo originale: {{movie.original_title}}</li>
-							<li class="list-group-item">Lingua originale: {{movie.original_language}}</li>
+							<li class="list-group-item">Lingua originale: <img :src="flag(movie.original_language)" alt="" class="imgLanguage"></li>
 							<li class="list-group-item">Voto: {{movie.vote_average}}</li>
 						</ul>
 					</div>
@@ -83,3 +116,10 @@
 	</main>
 
 </template>
+
+<style>
+	.imgLanguage{
+		width: 100px;
+		border-radius: 5px;
+	}
+</style>

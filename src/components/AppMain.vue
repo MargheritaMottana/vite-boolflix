@@ -8,10 +8,10 @@
   }
 </script>
 
-<template>
+<!-- <template>
 	<main>
 		<p>
 			{{ text }}
 		</p>
 	</main>
-</template>
+</template> -->

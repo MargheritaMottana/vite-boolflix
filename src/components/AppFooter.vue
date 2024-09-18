@@ -8,10 +8,10 @@
   }
 </script>
 
-<template>
+<!-- <template>
     <footer>
         <p>
             {{ message }}
         </p>
     </footer>
-</template>
+</template> -->
